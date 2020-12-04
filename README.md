@@ -8,7 +8,7 @@ Uso de webpack, instalacion y ocnfiguracion.
 ```
 npm init
 ````
-- construir dist de webpack en modo "produciton" con :
+- construir dist de webpack en modo "production" con :
 ```
 npm run build
 ```

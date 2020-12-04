@@ -1,7 +1,7 @@
-const HtmlWebPackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebPackPlugin              = require('html-webpack-plugin');
+const MiniCssExtractPlugin           = require('mini-css-extract-plugin');
 const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
+const CopyPlugin                     = require('copy-webpack-plugin');
 
 module.exports = {
 
@@ -15,14 +15,14 @@ module.exports = {
         rules: [
             {
                 test: /\.css$/,
-                exclude: /style\.css$/,
+                exclude: /styles\.css$/,
                 use: [
                     'style-loader',
                     'css-loader'
                 ]
             },
             {
-                test: /style\.css$/,
+                test: /styles\.css$/,
                 use: [
                     MiniCssExtractPlugin.loader,
                     'css-loader'
@@ -52,7 +52,8 @@ module.exports = {
     plugins: [
         new HtmlWebPackPlugin({
             template: './src/index.html',
-            filename: './index.html'
+            filename: './index.html',
+            title: 'Caching'
         }),
         new MiniCssExtractPlugin({
             filename: '[name].[contentHash].css',
@@ -68,6 +69,11 @@ module.exports = {
                 ]
             })
     ],
+    // devServer: {
+    //     contentBase: path.join(__dirname, 'dist'),
+    //     compress: true,
+    //     port: 9000
+    // }
 
 
 
